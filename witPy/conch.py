@@ -3,6 +3,7 @@ import speech_recognition as sr
 import wit
 import json
 import os
+import time
 wit.init()
 run =1
 while(run):
@@ -46,13 +47,15 @@ while(run):
 		elif intent == "change_directory":
 			
 			try:
+				os.chdir("../")
 				call(["say","I change dat directory"])
-				value = parsedCommand['outcomes'][0]['entities']['echo_text'][0]['value']
-				os.chdir(value)
 			except:
 				call(["say","I failed you"])
 		elif inputSpeech == "quit" or inputSpeech == "exit":
 			run = 0
+			call(["say", "Au revoir, Shoshana!"])
+		elif inputSpeech == "date":
+			call(["say", time.strftime("%c")])
 		else:
 			call(["say", "Sorry, I didn't catch that."])
 	except:
