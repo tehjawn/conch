@@ -49,7 +49,7 @@ while(1):
 
 
 	#print json.dumps(parsedCommand, sort_keys=True, indent=4)
-	wit.close()
+wit.close()
 
 	#except sr.UnknownValueError:
 	 #   print("Google Speech Recognition could not understand audio")
