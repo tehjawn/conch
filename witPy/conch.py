@@ -11,7 +11,9 @@ while(run):
 	try:
 		r = sr.Recognizer()
 		with sr.Microphone() as source:
-		    print("Say something!")
+				print("Adjusting for ambient noise...")
+		    r.adjust_for_ambient_noise(source) # listen for 1 second to calibrate the energy threshold for ambient noise levels
+		    print("Okay, say something!")
 		    audio = r.listen(source)
 
 
@@ -56,6 +58,12 @@ while(run):
 			call(["say", "Au revoir, Shoshana!"])
 		elif inputSpeech == "date":
 			call(["say", time.strftime("%c")])
+		elif inputSpeech == "help":
+			print("Available commands:")
+			print("cd - change to parent directory")
+			print("ls - list directory")
+			print("echo [params] - speaks back like a parrot")
+			print("weather - gets current weather")
 		else:
 			call(["say", "Sorry, I didn't catch that."])
 	except:
