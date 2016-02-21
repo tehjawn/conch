@@ -38,14 +38,14 @@ while(1):
 			call(["say", f])
 			i = i+1
 	elif intent == "echo":
-		print("echo")
+		print("--- ECHO COMMAND ---")
 		value = parsedCommand['outcomes'][0]['entities']['echo_text'][0]['value']
 		call(["say", value])
 	elif intent == "change_directory":
 		call(["say","I change dat directory"])
 		#os.chdir('../')
 	else:
-		call(["say", "come again, sir or madam?"])
+		call(["say", "Sorry, I didn't catch that."])
 
 
 	#print json.dumps(parsedCommand, sort_keys=True, indent=4)
